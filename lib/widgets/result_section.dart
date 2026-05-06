@@ -119,7 +119,7 @@ class _DownloadButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF6C63FF).withOpacity(0.35),
+              color: const Color(0xFF6C63FF).withValues(alpha: 0.35),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),
@@ -179,7 +179,7 @@ class _ResultCard extends StatelessWidget {
                   width: 32,
                   height: 32,
                   decoration: BoxDecoration(
-                    color: iconColor.withOpacity(0.12),
+                    color: iconColor.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(icon, color: iconColor, size: 17),
@@ -278,10 +278,10 @@ class _ObjectsGrid extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: const Color(0xFF3ECFCF).withOpacity(0.08),
+                color: const Color(0xFF3ECFCF).withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                    color: const Color(0xFF3ECFCF).withOpacity(0.25)),
+                    color: const Color(0xFF3ECFCF).withValues(alpha: 0.25)),
               ),
               child: Text(
                 obj,

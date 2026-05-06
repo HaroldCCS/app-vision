@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -174,13 +173,11 @@ class _ImageZone extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: hasImage
-                ? const Color(0xFF6C63FF).withOpacity(0.6)
+                ? const Color(0xFF6C63FF).withValues(alpha: 0.6)
                 : const Color(0xFF2D2D3A),
             width: 1.5,
           ),
-          color: hasImage
-              ? Colors.transparent
-              : const Color(0xFF12121A),
+          color: hasImage ? Colors.transparent : const Color(0xFF12121A),
         ),
         clipBehavior: Clip.antiAlias,
         child: hasImage
@@ -196,7 +193,7 @@ class _ImageZone extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withOpacity(0.4),
+                          Colors.black.withValues(alpha: 0.4),
                         ],
                       ),
                     ),
@@ -209,10 +206,11 @@ class _ImageZone extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 14, vertical: 8),
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.65),
+                        color: Colors.black.withValues(alpha: 0.65),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                            color: Colors.white.withOpacity(0.2), width: 1),
+                            color: Colors.white.withValues(alpha: 0.2),
+                            width: 1),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -243,8 +241,8 @@ class _ImageZone extends StatelessWidget {
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
                         colors: [
-                          const Color(0xFF6C63FF).withOpacity(0.15),
-                          const Color(0xFF3ECFCF).withOpacity(0.15),
+                          const Color(0xFF6C63FF).withValues(alpha: 0.15),
+                          const Color(0xFF3ECFCF).withValues(alpha: 0.15),
                         ],
                       ),
                     ),
@@ -287,8 +285,8 @@ class _AnalyzeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final canAnalyze = provider.imageBytes != null &&
-        provider.state != AppState.loading;
+    final canAnalyze =
+        provider.imageBytes != null && provider.state != AppState.loading;
 
     return AnimatedOpacity(
       opacity: provider.imageBytes != null ? 1.0 : 0.35,
@@ -305,7 +303,7 @@ class _AnalyzeButton extends StatelessWidget {
             boxShadow: canAnalyze
                 ? [
                     BoxShadow(
-                      color: const Color(0xFF6C63FF).withOpacity(0.4),
+                      color: const Color(0xFF6C63FF).withValues(alpha: 0.4),
                       blurRadius: 20,
                       offset: const Offset(0, 8),
                     )
@@ -360,7 +358,8 @@ class _ErrorCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF1E0A0A),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFFF453A).withOpacity(0.4)),
+        border: Border.all(
+            color: const Color(0xFFFF453A).withValues(alpha: 0.4)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
